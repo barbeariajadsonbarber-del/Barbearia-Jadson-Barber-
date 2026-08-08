@@ -4233,9 +4233,9 @@ private fun FeedScreen(
                         Box(
                             modifier = Modifier
                                 .size(42.dp)
-                                .clip(CircleShape)
+                                .clip(RoundedCornerShape(10.dp))
                                 .background(YellowGradient)
-                                .border(1.dp, YellowGold, CircleShape),
+                                .border(1.dp, YellowGold, RoundedCornerShape(10.dp)),
                             contentAlignment = Alignment.Center
                         ) {
                             Icon(
@@ -4308,9 +4308,9 @@ private fun FeedScreen(
                             Box(
                                 modifier = Modifier
                                     .size(56.dp)
-                                    .clip(CircleShape)
+                                    .clip(RoundedCornerShape(12.dp))
                                     .background(CharcoalSurface)
-                                    .border(1.dp, YellowGold, CircleShape),
+                                    .border(1.dp, YellowGold, RoundedCornerShape(12.dp)),
                                 contentAlignment = Alignment.Center
                             ) {
                                 Icon(
@@ -4588,9 +4588,9 @@ private fun AuthDialog(
                         Box(
                             modifier = Modifier
                                 .size(40.dp)
-                                .clip(CircleShape)
+                                .clip(RoundedCornerShape(10.dp))
                                 .background(YellowGold.copy(alpha = 0.15f))
-                                .border(1.5.dp, YellowGold, CircleShape)
+                                .border(1.5.dp, YellowGold, RoundedCornerShape(10.dp))
                                 .clickable {
                                     scissorTapCount++
                                     if (scissorTapCount >= 5) {
@@ -5213,9 +5213,9 @@ private fun ProfileScreen(
                     Box(
                         modifier = Modifier
                             .size(70.dp)
-                            .clip(CircleShape)
+                            .clip(RoundedCornerShape(16.dp))
                             .background(YellowGradient)
-                            .border(2.dp, YellowGold, CircleShape),
+                            .border(2.dp, YellowGold, RoundedCornerShape(16.dp)),
                         contentAlignment = Alignment.Center
                     ) {
                         Icon(
@@ -6688,7 +6688,7 @@ private fun AdminTeamTab(
                         Box(
                             modifier = Modifier
                                 .size(44.dp)
-                                .clip(CircleShape)
+                                .clip(RoundedCornerShape(10.dp))
                                 .background(YellowGradient),
                             contentAlignment = Alignment.Center
                         ) {
