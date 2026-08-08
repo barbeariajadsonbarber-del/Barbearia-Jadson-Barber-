@@ -30,7 +30,7 @@
       color: var(--text-light);
       font-family: var(--font-family);
       line-height: 1.6;
-      padding-bottom: 60px;
+      padding-bottom: 90px;
     }
 
     header {
@@ -93,22 +93,51 @@
       text-align: left;
     }
 
-    nav {
+    /* Bottom Sidebar Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: rgba(18, 18, 18, 0.98);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
       display: flex;
-      gap: 20px;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0 12px 0;
+      z-index: 1000;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
     }
 
-    nav a {
-      color: var(--text-light);
+    .bottom-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      color: var(--text-muted);
       text-decoration: none;
-      font-size: 0.95rem;
+      font-size: 0.75rem;
       font-weight: 500;
-      transition: color 0.3s;
       cursor: pointer;
+      transition: color 0.2s, transform 0.2s;
+      flex: 1;
+      padding: 4px 0;
     }
 
-    nav a:hover, nav a.active {
+    .bottom-nav-item svg {
+      stroke: var(--text-muted);
+      transition: stroke 0.2s, transform 0.2s;
+    }
+
+    .bottom-nav-item:hover, .bottom-nav-item.active {
       color: var(--gold);
+    }
+
+    .bottom-nav-item:hover svg, .bottom-nav-item.active svg {
+      stroke: var(--gold);
+      transform: translateY(-2px);
     }
 
     .container {
@@ -372,11 +401,6 @@
         <p>Estilo & Tradição</p>
       </div>
     </a>
-    <nav>
-      <a onclick="showPage('agendar')" class="active" id="nav-agendar">Agendar</a>
-      <a onclick="showPage('meus-agendamentos')" id="nav-meus-agendamentos">Meus Agendamentos</a>
-      <a onclick="showPage('contato')" id="nav-contato">Contato</a>
-    </nav>
   </header>
 
   <div class="container">
@@ -464,6 +488,22 @@
   <footer>
     &copy; 2026 Jadson Barber. Todos os direitos reservados.
   </footer>
+
+  <!-- Sidebar Inferior / Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <a onclick="showPage('agendar')" class="bottom-nav-item active" id="nav-agendar">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>Agendar</span>
+    </a>
+    <a onclick="showPage('meus-agendamentos')" class="bottom-nav-item" id="nav-meus-agendamentos">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="15" y2="16"/></svg>
+      <span>Meus Agendamentos</span>
+    </a>
+    <a onclick="showPage('contato')" class="bottom-nav-item" id="nav-contato">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contato</span>
+    </a>
+  </nav>
 
   <script>
     const SERVICES = [
@@ -604,8 +644,9 @@
       document.getElementById('page-meus-agendamentos').style.display = pageId === 'meus-agendamentos' ? 'block' : 'none';
       document.getElementById('page-contato').style.display = pageId === 'contato' ? 'block' : 'none';
 
-      document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-      document.getElementById(`nav-${pageId}`).classList.add('active');
+      document.querySelectorAll('.bottom-nav-item').forEach(a => a.classList.remove('active'));
+      const activeNav = document.getElementById(`nav-${pageId}`);
+      if (activeNav) activeNav.classList.add('active');
     }
 
     window.onload = init;
