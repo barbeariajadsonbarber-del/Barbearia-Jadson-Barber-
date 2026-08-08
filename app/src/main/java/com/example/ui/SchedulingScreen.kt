@@ -4454,9 +4454,15 @@ private fun BottomQuickAccessBar(
             )
             BottomNavItem(
                 icon = Icons.Default.EventAvailable,
-                label = "Agendamentos",
+                label = "Meus Agendamentos",
                 isSelected = activeDestination == DrawerDestination.MY_BOOKINGS,
                 onClick = { onNavigate(DrawerDestination.MY_BOOKINGS) }
+            )
+            BottomNavItem(
+                icon = Icons.Default.LocationOn,
+                label = "Contatos",
+                isSelected = activeDestination == DrawerDestination.LOCATION,
+                onClick = { onNavigate(DrawerDestination.LOCATION) }
             )
             BottomNavItem(
                 icon = Icons.Default.PhotoLibrary,
@@ -4512,12 +4518,12 @@ private fun BottomNavItem(
                     scaleY = scale
                 }
                 .size(38.dp)
-                .clip(CircleShape)
+                .clip(RoundedCornerShape(10.dp))
                 .then(bgModifier)
                 .border(
                     width = 1.dp,
                     color = if (isSelected) YellowGold else YellowGold.copy(alpha = 0.35f),
-                    shape = CircleShape
+                    shape = RoundedCornerShape(10.dp)
                 )
         ) {
             Icon(
