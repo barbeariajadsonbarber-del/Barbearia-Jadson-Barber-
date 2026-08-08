@@ -4594,7 +4594,7 @@ private fun AuthDialog(
                                 .clickable {
                                     scissorTapCount++
                                     if (scissorTapCount >= 5) {
-                                        android.widget.Toast.makeText(context, "🔑 Painel Administrativo Acessado!", android.widget.Toast.LENGTH_SHORT).show()
+                                        android.widget.Toast.makeText(context, "Painel Administrativo Acessado!", android.widget.Toast.LENGTH_SHORT).show()
                                         onOpenAdminPanel()
                                     } else if (scissorTapCount >= 2) {
                                         android.widget.Toast.makeText(context, "Toque mais ${5 - scissorTapCount}x para o Painel Admin", android.widget.Toast.LENGTH_SHORT).show()
