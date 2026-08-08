@@ -851,7 +851,7 @@ private fun HeaderSection(
                 )
             }
 
-            Column {
+            Column(horizontalAlignment = Alignment.Start) {
                 Text(
                     text = "BARBEARIA",
                     color = YellowGold,
